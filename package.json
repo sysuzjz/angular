@@ -2,6 +2,11 @@
   "name": "angular",
   "repository": "https://github.com/sysuzjz",
   "main": "gulpfile.js",
+  "scripts": {
+	  "dev": "gulp --watch",
+	  "compile": "gulp --build",
+	  "test": "gulp test"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel": "^6.5.2",
