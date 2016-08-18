@@ -29,15 +29,10 @@
     },
     "env": {
         "es6": true,
-        "browser": true,
+        "browser": true
     },
     "globals": {
-        "jQuery": true,
-        "wx": true,
-        "hybrid": true,
-        "VIP": true,
-        "require": true,
-        "SERVER_TIME": true,
+        "require": true
     },
     "extends": "airbnb",
     "ecmaFeatures": {

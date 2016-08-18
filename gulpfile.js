@@ -22,9 +22,9 @@ gulp.task('default', () => {
 // js语法检查
 gulp.task('test', () => {
 	return gulp.src(['src/**/**/*.js', '!src/common/**/*', '!/**/node_modules/**/*'])
-	.pipe(eslint());
-	// .pipe(eslint.format())
-	// .pipe(eslint.failAfterError());
+	.pipe(eslint())
+	.pipe(eslint.format())
+	.pipe(eslint.failAfterError());
 });
 
 gulp.task('help', () => {
