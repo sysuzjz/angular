@@ -21,16 +21,16 @@ gulp.task('default', () => {
 
 // js语法检查
 gulp.task('test', () => {
-	return gulp.src(['src/**/*.js', '!src/common/**/*', '!/**/node_modules/**/*'])
-	.pipe(eslint())
-	.pipe(eslint.format())
-	.pipe(eslint.failAfterError());
+	return gulp.src(['src/**/**/*.js', '!src/common/**/*', '!/**/node_modules/**/*'])
+	.pipe(eslint());
+	// .pipe(eslint.format())
+	// .pipe(eslint.failAfterError());
 });
 
 gulp.task('help', () => {
-	['构建模块: gulp --project=项目/模块，如 gulp --project=lefeng/lottery-20151028，-w 参数为监听选项，--build参数为压缩选项',
-	'本地服务: gulp server --project=项目/模块，如 gulp --project=lefeng/lottery-20151028',
-	'语法检查: gulp test 只针对src目录下的js文件进行语法和风格校验'].forEach( (item, index ) => {
+	['构建模块: npm run compile',
+	'开发选项: npm run dev',
+	'语法检查: npm run test'].forEach( (item, index ) => {
 		gutil.log(gutil.colors.bgBlue(` ${index + 1} `), gutil.colors.blue(item));
 	});
 });

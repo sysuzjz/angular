@@ -1,0 +1,48 @@
+{
+    "parser": "babel-eslint",
+    "rules": {
+        "strict": 0,
+        "new-cap": [0],
+        "func-names": [0],
+        "one-var": [0],
+        "one-var-declaration-per-line": [0],
+        "eol-last": [0],
+        "prefer-template": [1],
+        "no-unused-vars": [1],
+        "no-trailing-spaces": [0],
+        "no-multi-spaces": [1],
+        "no-unused-expressions": [1, {"allowShortCircuit": true}],
+        "padded-blocks": [1, "never"],
+        "no-else-return": [0],
+        "id-length": [2, {"min": 1}],
+        "indent": [1, "tab"],
+        "brace-style": [2, "stroustrup", {"allowSingleLine": true}],
+        "comma-spacing": [1, {"before": false, "after": true}],
+        "comma-dangle": [1, "always-multiline"],
+        "key-spacing": [1, {"beforeColon": false, "afterColon": true}],
+        "spaced-comment": [1, "always"],
+        "space-before-blocks": [1],
+        "import/no-unresolved": [0],
+        "max-len": [0],
+        "object-curly-spacing": ["error", "never"],
+        "no-script-url": [0]
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+    },
+    "globals": {
+        "jQuery": true,
+        "wx": true,
+        "hybrid": true,
+        "VIP": true,
+        "require": true,
+        "SERVER_TIME": true,
+    },
+    "extends": "airbnb",
+    "ecmaFeatures": {
+        "modules": true,
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+    }
+}

@@ -9,7 +9,7 @@ const argv = require('yargs').argv,
 const srcPath = path.join(__dirname, 'src'),
 	outputPath = path.join(__dirname, 'build'),
 	entry = {},
-	result = glob.sync(path.join(srcPath, '/page', '*.js'));
+	result = glob.sync(path.join(srcPath, '/page', '**/*.js'));
 
 result.forEach( (name) => {
 	entry[name.split('/').pop().split('.').shift()] = name;
@@ -22,12 +22,13 @@ const config = {
 		extensions: ['', '.js', '.jsx'],
 		alias: {
 			component: path.join(__dirname, '/src/component'),
-			page: path.join(___dirname, '/src/page'),
+			page: path.join(__dirname, '/src/page'),
+			common: path.join(__dirname, '/src/common'),
 		},
 	},
 	output: {
 		path: outputPath, // 打包输出的路径
-		filename: argv.build ? '[name].js?[chunkhash]': '[name].js', // 打包后的名字
+		filename: argv.build ? '[name].[chunkhash].js': '[name].js', // 打包后的名字
 	},
 	module: {
 		loaders: [
@@ -85,7 +86,7 @@ const config = {
 				chunks: [name],
 				filename: `${name}.html`,
 				inject: 'body',
-				template: path.join(__dirname, 'src/', 'common.jade'),
+				template: path.join(__dirname, 'src/common/', 'common.jade'),
 			}));
 		});
 
