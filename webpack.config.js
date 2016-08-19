@@ -49,6 +49,7 @@ const config = {
 			}, {
 				test: /\.styl$/,
 				loader: 'style-loader!css-loader!stylus-loader',
+				path: path.join(__dirname, 'node_modules/stylus/lib'),
 			}, {
 				test: /\.(jpg|png|gif|woff|woff2|eot|ttf|svg|mp3)$/,
 				loader: 'url?limit=10000',
@@ -89,7 +90,7 @@ const config = {
 		return r;
 	})(),
 	stylus: {
-		import: ['nib'],
+		import: ['nib', path.join(__dirname, '/src/common/common.styl')],
 	},
 };
 module.exports = config;
