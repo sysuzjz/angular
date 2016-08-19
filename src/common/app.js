@@ -1,3 +1,3 @@
-import angular from 'angular';
+// import angular from 'angular';
 
-export default app = angular.module('myApp', []);
+// const app = angular.module('myApp', []);

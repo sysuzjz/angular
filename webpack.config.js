@@ -45,14 +45,10 @@ const config = {
 			}, {
 				test: /\.(js|jsx)$/,
 				exclude: /(node_modules|bower_components)/,
-				loader: 'babel',
-				query: {
-					stage: 0,
-					optional: ['runtime'],
-				},
+				loader: 'babel'
 			}, {
 				test: /\.styl$/,
-				loader: 'style!css!stylus?paths=' + path.resolve(__dirname, './node_modules/nib/lib/'),
+				loader: 'style-loader!css-loader!stylus-loader',
 			}, {
 				test: /\.(jpg|png|gif|woff|woff2|eot|ttf|svg|mp3)$/,
 				loader: 'url?limit=10000',
@@ -93,7 +89,7 @@ const config = {
 		return r;
 	})(),
 	stylus: {
-		import: ['nib', path.join(__dirname, '/src/common/style')],
+		import: ['nib'],
 	},
 };
 module.exports = config;
