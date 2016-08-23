@@ -7,8 +7,8 @@ app.directive('footer', () => {
 		restrict: 'EA',
 		template: require('./footer.jade')(),
 		scope: {},
-		link: function (scope, element, attr) {
-			
-		}
-	}
+		link: function (scope) {
+			scope.test1 = 11;
+		},
+	};
 });
