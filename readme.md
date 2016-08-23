@@ -3,20 +3,21 @@
 
 #目录结构#
 
-root
-  |
-  |----- build 构建好的目录
-  |
-  |----- src
-  |       |
-  |       |----- component 存放各种组件，即directive，每个directive为一个文件夹，包含js和css文件
-  |       |
-  |       |----- page 各个页面，即html
-  |       |
-  |       |----- app.js 入口文件
-  |
-  |----- gulpfile.js gulp构建配置
-  |
-  |----- webpack.config.js webpack配置
-  |
-  |----- package.json
+root  
+  |  
+  |----- build 构建好的目录  
+  |  
+  |----- src  
+  |       |  
+  |       |----- component 存放各种组件，即directive，每个directive为一个文件夹，包含js和css文件  
+  |       |  
+  |       |----- page 各个页面，即html  
+  |       |  
+  |       |----- app.js 入口文件  
+  |  
+  |----- gulpfile.js gulp构建配置  
+  |  
+  |----- webpack.config.js webpack配置  
+  |  
+  |----- package.json  
+  
