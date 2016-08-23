@@ -28,7 +28,7 @@ const config = {
 	},
 	output: {
 		path: outputPath, // 打包输出的路径
-		filename: argv.build ? '[name].[chunkhash].js': '[name].js', // 打包后的名字
+		filename: argv.build ? '[name].js?[chunkhash]': '[name].js', // 打包后的名字
 	},
 	module: {
 		loaders: [
@@ -48,8 +48,8 @@ const config = {
 				loader: 'babel'
 			}, {
 				test: /\.styl$/,
-				loader: 'style-loader!css-loader!stylus-loader',
-				path: path.join(__dirname, 'node_modules/stylus/lib'),
+				loader: 'style!css!stylus',
+				exclude: /node_modules/,
 			}, {
 				test: /\.(jpg|png|gif|woff|woff2|eot|ttf|svg|mp3)$/,
 				loader: 'url?limit=10000',
@@ -90,7 +90,8 @@ const config = {
 		return r;
 	})(),
 	stylus: {
-		import: ['nib', path.join(__dirname, '/src/common/common.styl')],
+		use: [require('nib')()],
+		import: ['~nib/lib/nib/index.styl', path.join(__dirname, '/src/common/common.styl')],
 	},
 };
 module.exports = config;

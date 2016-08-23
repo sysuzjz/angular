@@ -1,3 +1,4 @@
-// import angular from 'angular';
+import angular from 'angular';
 
-// const app = angular.module('myApp', []);
+const app = angular.module('myApp', []);
+export default app;

@@ -1,7 +1,11 @@
-// require('page/index/index.styl');
-// import app from 'common/app.js';
-// console.log(app)
-// document.body.innerHTML = require('./index.jade')();
-console.log(require(`page/index/index.styl`));
-// app.controller('index', []);
-// require('common/app.js')
+import app from 'common/app.js';
+
+require('./index.styl');
+require('component/footer/footer');
+
+document.body.innerHTML = require('./index.jade')();
+
+app.controller('index', ($scope) => {
+	$scope.test = 1;
+});
+

@@ -1,31 +1,86 @@
 {
     "parser": "babel-eslint",
     "rules": {
-        "strict": 0,
-        "new-cap": [0],
-        "func-names": [0],
-        "one-var": [0],
-        "one-var-declaration-per-line": [0],
-        "eol-last": [0],
-        "prefer-template": [1],
-        "no-unused-vars": [1],
-        "no-trailing-spaces": [0],
-        "no-multi-spaces": [1],
-        "no-unused-expressions": [1, {"allowShortCircuit": true}],
-        "padded-blocks": [1, "never"],
-        "no-else-return": [0],
-        "id-length": [2, {"min": 1}],
-        "indent": [1, "tab"],
-        "brace-style": [2, "stroustrup", {"allowSingleLine": true}],
-        "comma-spacing": [1, {"before": false, "after": true}],
+        // 在块级作用域外访问块内定义的变量是否报错提示
+        "block-scoped-var": 1,
+        // if while function 后面的{必须与if在同一行，else在}下一行
+        "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
+        // 双峰驼命名格式
+        "camelcase": 2,
+        // 数组和对象键值对最后一个逗号，never参数：不能带末尾的逗号，always参数：必须带末尾的逗号，always-multiline：多行模式必须带逗号，单行模式不能带逗号  
         "comma-dangle": [1, "always-multiline"],
+        // 控制逗号前后的空格  
+        "comma-spacing": [1, {"before": false, "after": true}],
+        // 控制多行赋值及数组逗号在行尾出现还是在行首出现
+        "comma-style": [2, "last"],
+        // 用于指统一在回调函数中指向this的变量名，this只能赋值给self，self不能用其他值赋值
+        "consistent-this": [1, "self"],
+        // 块必须用大括号包围
+        "curly": [2, "all"],
+        // switch语句强制default分支
+        "default-case": 2,
+        // 文件末尾强制换行 
+        "eol-last": [1],
+        // 用===而不是==
+        "eqeqeq": [2, "allow-null"],
+        // 方法表达式是否需要命名
+        "func-names": [0],
+        // 方法定义风格，允许箭头函数
+        "func-style": [0, {"allowArrowFunctions": true}],
+        // 缩进，case必须缩进
+        "indent": [1, "tab", {"SwitchCase": 1}],
+        // 冒号前后空格
         "key-spacing": [1, {"beforeColon": false, "afterColon": true}],
-        "spaced-comment": [1, "always"],
-        "space-before-blocks": [1],
+        // 键名长度，默认至少三位
+        "id-length": [1],
+        // 用webpack的alias时不报错
+        "import/no-extraneous-dependencies": [0],
+        // 用webpack的alias时不报错
         "import/no-unresolved": [0],
-        "max-len": [0],
-        "object-curly-spacing": ["error", "never"],
-        "no-script-url": [0]
+        // 每行长度限制
+        "max-len": [1, {"code": 80}],
+        // 回调嵌套最多三层
+        "max-nested-callbacks": [1, {"max": 3}],
+        // new操作对构造器命名要求
+        "new-cap": [0],
+        // new操作不能省略括号，new Person()
+        "new-parens": 2,
+        // 禁止使用alert
+        "no-alert": 2,
+        // 不能在条件语句中赋值，除了循环
+        "no-cond-assign": [2],
+        // 禁止使用console
+        "no-console": 2,
+        // 禁止使用必然条件
+        "no-constant-condition": 2,
+        // 没有else也可以直接return
+        "no-else-return": [0],
+        // 操作符前后
+        "no-multi-spaces": [1],
+        // location.href = "javascript:void(0)";
+        "no-script-url": [0],
+        // 语句后面禁止有其他东西
+        "no-trailing-spaces": [1],
+        // 表达式改变一个值而之后不对这个值进行引用。支持逻辑短路
+        "no-unused-expressions": [1, {"allowShortCircuit": true}],
+        // 定义变量必须使用
+        "no-unused-vars": [1],
+        // 对象里不能套对象，除非键值是字符串，即 var obj = {'subObj': {}, 'subObj2': 'test'}
+        "object-curly-spacing": [2, "never"],
+        // 多变量定义只用一个var
+        "one-var": [0],
+        // 一行只定义一个变量
+        "one-var-declaration-per-line": [0],
+        // 块首尾不能有空行
+        "padded-blocks": [1, "never"],
+        // 字符串变量拼接改用模板字符串来完成，var str = `hello ${name}`
+        "prefer-template": [1],
+        // 非新行的块前面必须有空格，例如if的块
+        "space-before-blocks": [1],
+        // 只允许块级注释
+        "spaced-comment": [1, "always"],
+        // 必须添加use strict
+        "strict": 0
     },
     "env": {
         "es6": true,
@@ -37,7 +92,11 @@
     "extends": "airbnb",
     "ecmaFeatures": {
         "modules": true,
-        "jsx": true,
-        "experimentalObjectRestSpread": true
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "classes": true,
+        "destructuring": true,
+        "defaultParams": true,
+        "experimentalObjectRestSpread": true,
     }
 }

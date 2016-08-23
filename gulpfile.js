@@ -21,7 +21,7 @@ gulp.task('default', () => {
 
 // js语法检查
 gulp.task('test', () => {
-	return gulp.src(['src/**/**/*.js', '!src/common/**/*', '!/**/node_modules/**/*'])
+	return gulp.src(['src/**/**/*.js', '!src/common/**/*'])
 	.pipe(eslint())
 	.pipe(eslint.format())
 	.pipe(eslint.failAfterError());
