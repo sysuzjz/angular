@@ -28,7 +28,7 @@ const config = {
 	},
 	output: {
 		path: outputPath, // 打包输出的路径
-		filename: argv.build ? '[name].js?[chunkhash]': '[name].js', // 打包后的名字
+		filename: argv.build ? '[name].[chunkhash].js': '[name].js', // 打包后的名字
 	},
 	module: {
 		loaders: [
@@ -60,7 +60,7 @@ const config = {
 
 		if (argv.build) {
 			// 清除上一版本带md5更名的文件
-			r.push(new Clean([path.join('app', argv.project)]));
+			r.push(new Clean([outputPath]));
 
 			r.push(new webpack.BannerPlugin(timestamp));
 
