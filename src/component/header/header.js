@@ -1,14 +1,14 @@
 import app from 'common/app.js';
 
-require('./footer.styl');
+require('./header.styl');
 
-app.directive('footer', () => {
+app.directive('header', () => {
 	return {
 		restrict: 'EA',
-		template: require('./footer.jade')(),
+		template: require('./header.jade')(),
 		scope: {},
 		link: function (scope) {
-			scope.test1 = 'footer';
+			scope.testHead = 'header';
 		},
 		replace: true,
 	};

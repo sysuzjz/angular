@@ -1,3 +1,6 @@
+#项目概览#
+本项目使用了`angular` + `stylus` + `jade`技术组合，使用`gulp` + `webpack`构建。
+
 #参考#
 `https://segmentfault.com/a/1190000003915443`  
 `https://segmentfault.com/a/1190000004468428`

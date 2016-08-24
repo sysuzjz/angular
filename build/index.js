@@ -52,13 +52,29 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	__webpack_require__(12);
+	__webpack_require__(14);
 	__webpack_require__(4);
-	__webpack_require__(8);
 
-	document.body.innerHTML = __webpack_require__(9)();
+	document.body.innerHTML = __webpack_require__(18)();
 
-	_app2.default.controller('index', function ($scope) {
+	_app2.default.controller('index', function ($scope, $http) {
 		$scope.test = 1;
+		$scope.req = function () {
+			$http({
+				method: 'post',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				url: './',
+				data: {
+					test1: 'a',
+					test2: 'b'
+				}
+			}).success(function (res) {
+				console.log(res);
+			});
+		};
 	});
 
 /***/ },
@@ -31865,20 +31881,46 @@
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var _app = __webpack_require__(1);
+
+	var _app2 = _interopRequireDefault(_app);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	__webpack_require__(5);
+
+	_app2.default.directive('footer', function () {
+		return {
+			restrict: 'EA',
+			template: __webpack_require__(9)(),
+			scope: {},
+			link: function link(scope) {
+				scope.test1 = 'footer';
+			},
+			replace: true
+		};
+	});
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(5);
+	var content = __webpack_require__(6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./index.styl", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./index.styl");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./footer.styl", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./footer.styl");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -31888,21 +31930,21 @@
 	}
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(6)();
+	exports = module.exports = __webpack_require__(7)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "h1 {\n  color: #ccc;\n}\n", ""]);
+	exports.push([module.id, ".footer h1 {\n  color: #555;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	/*
@@ -31958,7 +32000,7 @@
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -32210,33 +32252,6 @@
 
 
 /***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _app = __webpack_require__(1);
-
-	var _app2 = _interopRequireDefault(_app);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	__webpack_require__(12);
-
-	var template = __webpack_require__(14)();
-
-	_app2.default.directive('footer', function () {
-		return {
-			restrict: 'EA',
-			template: __webpack_require__(14)(),
-			scope: {},
-			link: function link(scope) {
-				scope.test1 = 11;
-			}
-		};
-	});
-
-/***/ },
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32247,7 +32262,7 @@
 	var jade_mixins = {};
 	var jade_interp;
 
-	buf.push("<div ng-controller=\"index\"><h1 class=\"test\">测试标题{{test}}</h1></div><div footer></div>");;return buf.join("");
+	buf.push("<div class=\"footer\"><h1>这是底部{{test1}}</h1></div>");;return buf.join("");
 	}
 
 /***/ },
@@ -32518,14 +32533,14 @@
 	var content = __webpack_require__(13);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./footer.styl", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./footer.styl");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./index.styl", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./index.styl");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -32538,18 +32553,84 @@
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(6)();
+	exports = module.exports = __webpack_require__(7)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".footer h1 {\n  color: #555;\n}\n", ""]);
+	exports.push([module.id, "h1 {\n  color: #ccc;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
 /* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _app = __webpack_require__(1);
+
+	var _app2 = _interopRequireDefault(_app);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	__webpack_require__(15);
+
+	_app2.default.directive('header', function () {
+		return {
+			restrict: 'EA',
+			template: __webpack_require__(17)(),
+			scope: {},
+			link: function link(scope) {
+				scope.testHead = 'header';
+			},
+			replace: true
+		};
+	});
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(16);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./header.styl", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./header.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".header h1 {\n  color: #303030;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var jade = __webpack_require__(10);
@@ -32559,7 +32640,21 @@
 	var jade_mixins = {};
 	var jade_interp;
 
-	buf.push("<div class=\"footer\"><h1>这是底部{{test1}}</h1></div>");;return buf.join("");
+	buf.push("<div class=\"header\"><h1>这是头部{{testHead}}</h1></div>");;return buf.join("");
+	}
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var jade = __webpack_require__(10);
+
+	module.exports = function template(locals) {
+	var buf = [];
+	var jade_mixins = {};
+	var jade_interp;
+
+	buf.push("<div header></div><div ng-controller=\"index\"><h1 ng-click=\"req()\" class=\"test\">测试标题{{test}}</h1></div><div footer></div>");;return buf.join("");
 	}
 
 /***/ }
