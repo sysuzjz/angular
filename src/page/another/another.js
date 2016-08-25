@@ -6,6 +6,6 @@ require('component/footer/footer');
 
 document.body.innerHTML = require('./another.jade')();
 
-app.controller('another', ($scope) => {
+app.controller('another', ['$scope', ($scope) => {
 	$scope.test = 2;
-});
+}]);

@@ -3,7 +3,7 @@ import url from 'url';
 
 app.constant('requestRoot', 'http://www.test.com')
 
-app.service('request', ($http, requestRoot) => {
+app.service('request', ['$http', 'requestRoot', ($http, requestRoot) => {
 	this.ajax = (opt) => {
 		$http({
 			method: opt.type || opt.method || 'get',
@@ -18,4 +18,4 @@ app.service('request', ($http, requestRoot) => {
 			opt.error && opt.error();
 		});
 	};
-});
+}]);

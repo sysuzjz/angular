@@ -6,7 +6,7 @@ require('component/footer/footer');
 
 document.body.innerHTML = require('./index.jade')();
 
-app.controller('index', ($scope, $http) => {
+app.controller('index', ['$scope', '$http', ($scope, $http) => {
 	$scope.test = 1;
 	$scope.req = () => {
 		$http({
@@ -23,5 +23,5 @@ app.controller('index', ($scope, $http) => {
 			console.log(res);
 		});
 	};
-});
+}]);
 
